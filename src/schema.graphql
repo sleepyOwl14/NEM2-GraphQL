@@ -1,0 +1,69 @@
+scalar Long
+scalar Buffer
+
+type Query {
+  chainHeight: chainInfo
+  block(height:Int!): [blocks]!
+  blocksFrom(height:Int!, numberOfBlock:Int!): [blocks!]
+  account(address:String!): account!
+}
+
+type chainInfo {
+  height: Long
+}
+
+type blocks {
+  id: ID!
+  meta: blocksMeta
+  block: blocksBlock
+}
+
+type blocksMeta {
+  generationHash: String
+  hash: String
+  merkleTree: [String]
+  numTransactions: Int
+  totalFee: Long
+}
+
+type blocksBlock {
+  blockTransactionsHash: String
+  difficulty: Long
+  height: Long
+  previousBlockHash: String
+  signature:String
+  signer: String
+  timestamp: Long
+  type: Int
+  version: Int
+}
+
+type account {
+  id: ID!
+  # meta: accountMeta
+  account: accountAccount
+}
+
+# type accountMeta {
+
+# }
+
+type accountAccount {
+  address: String,
+  addressHeight: Long,
+  publicKey: String,
+  publicKeyHeight: Long,
+  importances:[accountImportance],
+  mosaics: [accountMosaic]
+}
+
+type accountImportance {
+  value: Long,
+  height: Long
+}
+
+type accountMosaic {
+  id: Long,
+  amount: Long
+}
+

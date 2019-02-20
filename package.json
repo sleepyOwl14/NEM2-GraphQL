@@ -1,0 +1,27 @@
+{
+  "name": "catapult-graphql",
+  "scripts": {
+    "start": "nodemon -e ts,graphql -x ts-node src/index.ts",
+    "debug": "nodemon -e ts,graphql -x ts-node --inspect src/index.ts",
+    "build": "rimraf dist && tsc"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "catapult-sdk": "^0.7.11",
+    "dotenv": "^6.2.0",
+    "graphql": "^14.0.2",
+    "graphql-yoga": "^1.16.9",
+    "mongodb": "^3.1.10",
+    "mongoose": "^5.4.3"
+  },
+  "devDependencies": {
+    "@types/graphql": "^14.0.4",
+    "@types/node": "10.12.18",
+    "nodemon": "1.18.9",
+    "prisma": "1.23.2",
+    "ts-node": "7.0.1",
+    "typescript": "3.2.2"
+  }
+}
